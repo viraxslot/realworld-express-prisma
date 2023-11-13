@@ -9,8 +9,10 @@ import {
   authErrorHandler,
   prismaErrorHandler,
 } from "./middleware/errorHandling";
+import cors from 'cors';
 
 const app = express();
+app.use(cors());
 
 // Allows parsing of json in the body of the request.
 app.use(express.json());

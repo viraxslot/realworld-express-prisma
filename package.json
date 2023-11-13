@@ -7,13 +7,13 @@
     "build": "dotenv -e .env -- npx tsc",
     "start": "node dist/server.js",
     "start:debug": "DEBUG=express:* node dist/server.js",
-    "develop": "DEBUG=express:* dotenv -e .env.development -- npx ts-node-dev --rs --clear --exit-child src/server.ts",
-    "studio:develop": "dotenv -e .env.development -- npx prisma studio",
-    "migrate:develop": "dotenv -e .env.development -- npx prisma db push",
+    "develop": "DEBUG=express:* dotenv -e .env -- npx ts-node-dev --rs --clear --exit-child src/server.ts",
+    "studio:develop": "dotenv -e .env -- npx prisma studio",
+    "migrate:develop": "dotenv -e .env -- npx prisma db push",
     "lint": "npx eslint .",
     "style": "npx prettier --check .",
-    "test": "dotenv -e .env.development -- jest -i",
-    "test:watch": "dotenv -e .env.development -- jest -i --watch --coverage=false"
+    "test": "dotenv -e .env -- jest -i",
+    "test:watch": "dotenv -e .env -- jest -i --watch --coverage=false"
   },
   "repository": {
     "type": "git",
@@ -52,7 +52,9 @@
   },
   "dependencies": {
     "@prisma/client": "^4.5.0",
+    "@types/cors": "^2.8.16",
     "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-jwt": "^8.3.0",
